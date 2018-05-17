@@ -1,4 +1,5 @@
 //sequelize goes here
+
 module.exports = function(sequelize, DataTypes) {
     var hospital = sequelize.define("hospital", {
       hospital_name: DataTypes.STRING,
@@ -6,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
       cost: DataTypes.INTEGER,
       zip_code: DataTypes.INTEGER
       // state: DataTypes.STRING
-    });
+    }, {timestamps: false});
     return hospital;
   };
 
