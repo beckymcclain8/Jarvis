@@ -1,3 +1,4 @@
+require("dotenv").config();
 var express = require("express");
 var bodyParser = require("body-parser");
 var connection = require("./config/config.json");
@@ -6,11 +7,11 @@ var app = express();
 var mysql = require("mysql");
 var path = require("path");
 var db = require("./models");
-var Sequelize = require('sequelize');
-var mysql2 = require('mysql2');
-var passport = require('passport');
+var Sequelize = require("sequelize");
+var mysql2 = require("mysql2");
+var passport = require("passport");
 var app = express();
-var session    = require('express-session')
+var session = require("express-session");
 
 var PORT = process.env.PORT || 8080;
 
@@ -18,31 +19,34 @@ if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
   connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: "",
-    database: 'jarvis_db'
-    
+    host: "localhost",
+    user: "root",
+    password: "36972255",
+    database: "jarvis_db"
   });
-};
+}
 
-app.use(bodyParser.json({limit: '50mb'}));
-app.use(bodyParser.urlencoded({limit: '50mb', extended: true, parameterLimit: 100000 }));
-
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(
+  bodyParser.urlencoded({
+    limit: "50mb",
+    extended: true,
+    parameterLimit: 100000
+  })
+);
 
 app.use(express.static("public"));
 
-require('./config/passport/passport.js')(passport, db.user);
-
+require("./config/passport/passport.js")(passport, db.user);
 
 //app.use(routes);
-
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+); // session secret
 
 app.use(passport.initialize());
 
@@ -67,7 +71,7 @@ var routes = require("./routes/jarvis")(app, passport);
 //     res.json(dbHospital);
 //      console.log("dpHospital: " + dbHospital);
 //   });
- 
+
 // });
 
 db.sequelize.sync().then(function() {
