@@ -6,7 +6,7 @@ Motivation: Health care costs can vary widely between providers with little tran
 
 Results: We used a database from healthdata.gov that outlines costs of procedures in hospitals across the country and present those to members in an easy to understand format.
 
-Click this link to take a look at Jarvis in action:  [Jarvis](https://drive.google.com/file/d/162e4I3UJy-qZwy3BXcZLB6h8TuYiVKf_/view)
+Click this link to take a look at Jarvis in action:  [Jarvis](https://javis-app-health.herokuapp.com/)
 
 ![Jarvis Login Page](/public/assets/images/login.JPG)
 
